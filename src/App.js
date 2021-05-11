@@ -18,11 +18,11 @@ function App() {
                 <Route path="/intervals" component={ Intervals } />
                 <Route path="/days" component={ Days } />
                 <Route path="/plans" component={ Plans } />
-                <Route path='/home' component={ Home } />
                 <Route path='/timer' component={ Timer }/>
                 <Route path='/finishedDay' component={ Finished } />
                 <Route path='/editUser' component={ EditUser } />
                 <Route path='/admin' component={ AdminPage } />
+                <Route path='/' component={ Home } />
             </BrowserRouter>
         </PlanProvider>
   );
