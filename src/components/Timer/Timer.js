@@ -42,14 +42,17 @@ export const Timer = ()=> {
                 },
                 1000)
         // when time is up, if there is user, saves in db finished day
-        } else if ( timeLeft === 0) {
+        } else if ( timeLeft === 0 && Object.keys(userData).length !== 0) {
             fetch(`${reqUrl}/users/finishedDay/${currentDayId}`,{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}})
                 .then(res => res.json())
                 .then(()=> history.push('/finishedDay'))
                 .catch(e => console.log(e))
+        } else if (timeLeft === 0) {
+            history.push('/finishedDay')
         }
+
         if (timeLeft%10 === 0) {
             navigator.geolocation.getCurrentPosition(position => {
                 let currentArray=[position.coords.longitude, position.coords.latitude];
@@ -94,7 +97,7 @@ export const Timer = ()=> {
     }, [currentIntervalIndex])
 
     return(
-        <div>
+        <div className='main-container'>
             <Header />
             <div className='timer'>
                 <AnimatePresence>

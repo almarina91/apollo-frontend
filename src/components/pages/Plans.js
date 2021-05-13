@@ -26,7 +26,7 @@ export const Plans = () => {
             .catch(e=>console.log(e))
     }, [fetchPlansAgain])
     return (
-        <div>
+        <div className='main-container'>
             <Header />
             <AnimatePresence>
                 {plans.map((plan, index)=>

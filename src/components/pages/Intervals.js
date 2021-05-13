@@ -32,7 +32,7 @@ export const Intervals = () => {
     }, [intervals])
 
     return (
-        <div>
+        <div className='main-container'>
             <Header />
             <AnimatePresence>
                 <motion.button variants={variantsArrow}

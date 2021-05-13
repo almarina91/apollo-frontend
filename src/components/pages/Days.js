@@ -35,7 +35,7 @@ export const Days = () => {
     const finished='data-field-finished';
 
     return (
-        <div>
+        <div className='main-container'>
             <Header />
             <AnimatePresence>
                 {days.map(day =>

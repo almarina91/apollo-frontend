@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { Home } from './components/Home/Home';
 import { Days } from './components/pages/Days';
 import { Intervals } from './components/pages/Intervals';
@@ -14,16 +14,19 @@ import { AdminPage } from "./components/AdminPage/AdminPage";
 function App() {
   return (
         <PlanProvider className="App">
-            <BrowserRouter>
-                <Route path="/intervals" component={ Intervals } />
-                <Route path="/days" component={ Days } />
-                <Route path="/plans" component={ Plans } />
-                <Route path='/timer' component={ Timer }/>
-                <Route path='/finishedDay' component={ Finished } />
-                <Route path='/editUser' component={ EditUser } />
-                <Route path='/admin' component={ AdminPage } />
-                <Route path='/' component={ Home } />
-            </BrowserRouter>
+            <HashRouter>
+                <Switch>
+                    <Route path="/intervals" component={ Intervals } />
+                    <Route path="/days" component={ Days } />
+                    <Route path="/plans" component={ Plans } />
+                    <Route path='/timer' component={ Timer }/>
+                    <Route path='/finishedDay' component={ Finished } />
+                    <Route path='/editUser' component={ EditUser } />
+                    <Route path='/admin' component={ AdminPage } />
+                    <Route exact path='/home' component={ Home } />
+                    <Route exact path='/' component={ Home } />
+                </Switch>
+            </HashRouter>
         </PlanProvider>
   );
 }
