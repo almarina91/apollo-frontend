@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import { variantsItems } from "../../utils/animationVariations";
 import { run, walk, languageName } from "../../utils/translations";
+import {CLASS, ICON} from "../../utils/enums";
 
 export const Timer = ()=> {
     const [shouldPlay, setShouldPlay] = useState(false)
@@ -105,24 +106,24 @@ export const Timer = ()=> {
                     <motion.h2  variants={variantsItems}
                                  initial='hidden'
                                  animate='visible'
-                                 className='interval-type'>{run[language]}</motion.h2> :
+                                 className={CLASS.intervalType}>{run[language]}</motion.h2> :
                     <motion.h2  variants={variantsItems}
                                  initial='hidden'
                                  animate='visible'
-                                 className='interval-type'>{walk[language]}</motion.h2>}
+                                 className={CLASS.intervalType}>{walk[language]}</motion.h2>}
                 </AnimatePresence>
-                <div className="time">{new Date(currentIntervalTime * 1000).toISOString().substr(14, 5)}</div>
+                <div className={CLASS.time}>{new Date(currentIntervalTime * 1000).toISOString().substr(14, 5)}</div>
                 <div>
-                    <button className='timer-button'
+                    <button className={CLASS.timerButton}
                             aria-label='play pause'
                             onClick={()=>setShouldPlay(!shouldPlay)}>
-                        {shouldPlay?<i className="fa fa-pause"/>:<i className="fa fa-play"/>}
+                        {shouldPlay?<i className={ICON.pause}/>:<i className={ICON.play}/>}
                     </button>
                 </div>
-                <p className='timer-intervals'>{currentIntervalIndex+1}/{intervals.length}</p>
+                <p className={CLASS.timerIntervals}>{currentIntervalIndex+1}/{intervals.length}</p>
                 <ProgressBar striped variant="warning" now={intervalPercentage} />
                 <br/>
-                <span className='timer-intervals'><i className='fa fa-clock-o'/> {new Date(timeLeft * 1000).toISOString().substr(14, 5)}</span>
+                <span className={CLASS.timerIntervals}><i className={ICON.clock}/> {new Date(timeLeft * 1000).toISOString().substr(14, 5)}</span>
                 <ProgressBar  striped animated variant='success' now={totalTimePercentage}/>
             </div>
         </div>

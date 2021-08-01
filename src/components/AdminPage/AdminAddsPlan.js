@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { usePlanContext } from "../../context/context";
-
-const required= 'Required';
+import { CLASS, ICON, MESSAGE, PLACEHOLDER } from "../../utils/enums";
 
 // validation of new plan inputs
 const validate = values => {
     const errors = {};
     if (!values.englishName) {
-        errors.englishName = required;
+        errors.englishName = MESSAGE.required;
     }
     if (!values.italianName) {
-        errors.italianName = required;
+        errors.italianName = MESSAGE.required;
     }
     if (!values.frenchName) {
-        errors.frenchName = required;
+        errors.frenchName = MESSAGE.required;
     }
     if (!values.serbianName) {
-        errors.serbianName = required;
+        errors.serbianName = MESSAGE.required;
     }
     if (!values.dutchName) {
-        errors.dutchName = required;
+        errors.dutchName = MESSAGE.required;
     }
     return errors;
 };
@@ -55,7 +54,7 @@ export const AdminAddsPlan = ()=> {
                 .then(res => res.json())
                 .then(()=> setMessage(true))
                 .then(()=> setFetchPlansAgain(true))
-                .catch(e => console.log('something went wrong'))
+                .catch(e => console.log(MESSAGE.wrong))
         }
     } , [inputData])
     return (
@@ -63,42 +62,44 @@ export const AdminAddsPlan = ()=> {
             <input name="englishName"
                    value={formik.values.englishName}
                    onChange={formik.handleChange}
-                   className='admin-input'
-                   placeholder='english name'/>
+                   className={CLASS.adminInput}
+                   placeholder={PLACEHOLDER.engName}/>
             {formik.errors.englishName ? (<div>{formik.errors.englishName}</div>) : null}
             <br/>
             <input  name="italianName"
                     value={formik.values.italianName}
                     onChange={formik.handleChange}
-                    className='admin-input'
-                    placeholder='italian name'/>
+                    className={CLASS.adminInput}
+                    placeholder={PLACEHOLDER.itaName}/>
             {formik.errors.italianName ? (<div>{formik.errors.italianName}</div>) : null}
             <br/>
             <input  name="frenchName"
                     value={formik.values.frenchName}
                     onChange={formik.handleChange}
-                    className='admin-input'
-                    placeholder='french name'/>
+                    className={CLASS.adminInput}
+                    placeholder={PLACEHOLDER.frName}/>
             {formik.errors.frenchName ? (<div>{formik.errors.frenchName}</div>) : null}
             <br/>
             <input  name="serbianName"
                     value={formik.values.serbianName}
                     onChange={formik.handleChange}
-                    className='admin-input'
-                    placeholder='serbian name'/>
+                    className={CLASS.adminInput}
+                    placeholder={PLACEHOLDER.serName}/>
             {formik.errors.serbianName ? (<div>{formik.errors.serbianName}</div>) : null}
             <br/>
             <input  name="dutchName"
                     value={formik.values.dutchName}
                     onChange={formik.handleChange}
-                    className='admin-input'
-                    placeholder='dutch name' />
+                    className={CLASS.adminInput}
+                    placeholder={PLACEHOLDER.nlName} />
             {formik.errors.dutchName ? (<div>{formik.errors.dutchName}</div>) : null}
             <br/>
             {message? <span>plan created!</span>:null}
             <button type='submit'
                     aria-label='confirm'
-                    className='admin-buttons'><i className="fa fa-check" aria-hidden="true"/></button>
+                    className={CLASS.adminButtons}>
+                <i className={ICON.check}aria-hidden="true"/>
+            </button>
         </form>
     )
 }

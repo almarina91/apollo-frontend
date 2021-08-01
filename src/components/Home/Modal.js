@@ -2,30 +2,30 @@ import React from 'react';
 import { usePlanContext } from '../../context/context';
 import { SignUpForm } from "./SignUpForm";
 import { SignInForm } from './SignInForm';
-
-const type = {
-    signIn: 'signIn',
-    signUp: 'signUp'
-}
+import { CLASS, MODAL_TYPE } from "../../utils/enums";
 
 export const Modal = () => {
     const { modalType } = usePlanContext();
     return (
-        <div className="modal fade" id="Modal" tabIndex="-1" role="dialog"
-             aria-labelledby="signInModal" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-                <div className="modal-content">
-                    <div className="modal-body">
-                        {modalType === type.signIn ?
-                            <h5 className="modal-title" id="signInModalLongTitle">welcome back</h5>
+        <div className={CLASS.modalFade}
+             id="Modal" tabIndex="-1"
+             role="dialog"
+             aria-labelledby="signInModal"
+             aria-hidden="true">
+            <div className={CLASS.modalDialog}
+                 role="document">
+                <div className={CLASS.modalContent}>
+                    <div className={CLASS.modalBody}>
+                        {modalType === MODAL_TYPE.signIn ?
+                            <h5 className={CLASS.modalTitle} id="signInModalLongTitle">welcome back</h5>
                             :
-                            <h5 className="modal-title" id="signInModalLongTitle">create an account</h5>}
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <h5 className={CLASS.modalTitle} id="signInModalLongTitle">create an account</h5>}
+                        <button type="button" className={CLASS.close} data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <br/>
                         <br/>
-                        {modalType === type.signIn ? <SignInForm /> : <SignUpForm />}
+                        {modalType === MODAL_TYPE.signIn ? <SignInForm /> : <SignUpForm />}
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { usePlanContext } from "../../context/context";
 import { useFormik } from 'formik';
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { required, insertValidWeight, insertValidHeight, invalidEmail, languageName } from "../../utils/translations";
+import {CLASS, ICON} from "../../utils/enums";
 
 
 export const EditUserData = () => {
@@ -62,64 +63,77 @@ export const EditUserData = () => {
         }
     }, [edit])
     return (
-            <div className='edit-user-data'>
+            <div className={CLASS.editUserData}>
                 {(editable === false) ?
                     <div>
-                        <span className='edit-user-span'><i className="fa fa-user-o colored"/></span>
-                        <span  className='edit-user-span'> {userData.username}</span>
+                        <span className={CLASS.editUserSpan}>
+                            <i className={ICON.userO}/>
+                        </span>
+                        <span  className={CLASS.editUserSpan}> {userData.username}</span>
                         <br/>
-                        <span className='edit-user-span'><i className="fa fa-envelope-o colored"/></span>
-                        <span  className='edit-user-span' > {userData.email}</span>
+                        <span className={CLASS.editUserSpan}>
+                            <i className={ICON.envelope}/>
+                        </span>
+                        <span  className={CLASS.editUserSpan} > {userData.email}</span>
                         <br/>
-                        <span className='edit-user-span'><i className="fa fa-balance-scale colored"/></span>
-                        <span className='edit-user-span' > {userData.weight?`${userData.weight} kg` :'0 kg'}</span>
+                        <span className={CLASS.editUserSpan}>
+                            <i className={ICON.scale}/>
+                        </span>
+                        <span className={CLASS.editUserSpan}> {userData.weight?`${userData.weight} kg` :'0 kg'}</span>
                         <br/>
-                        <span className='edit-user-span'><i className="fa fa-arrows-v colored"/></span>
-                        <span className='edit-user-span' > {userData.height?`${userData.height} cm` :'0 cm'}</span>
+                        <span className={CLASS.editUserSpan}>
+                            <i className={ICON.arrowsV}/>
+                        </span>
+                        <span className={CLASS.editUserSpan}> {userData.height?`${userData.height} cm` :'0 cm'}</span>
                         <br/>
-                        <span className='edit-user-span'><i className="fa fa-language colored"/></span>
-                        <span className='edit-user-span' > {userData.language}</span>
+                        <span className={CLASS.editUserSpan}>
+                            <i className={ICON.language}/>
+                        </span>
+                        <span className={CLASS.editUserSpan}> {userData.language}</span>
                         <br/>
-                        <button className='btn btn-edit'
+                        <button className={CLASS.button}
                                 aria-label='edit'
-                                onClick={() => setEditable(!editable)}><i className="fa fa-pencil"/></button>
+                                onClick={() => setEditable(!editable)}>
+                            <i className={ICON.pencil}/>
+                        </button>
                     </div>
                     :
                     <div>
                     <form onSubmit={formik.handleSubmit}>
-                        <i className="fa fa-user-o colored"/>
+                        <i className={ICON.userO}/>
                         <input name="username"
                                value={formik.values.username}
                                onChange={formik.handleChange}
-                               className='edit-user-input'
+                               className={CLASS.editUserInput}
                                defaultValue={userData.username}/>
                         {formik.errors.username ? (<div>{formik.errors.username}</div>) : null}
                         <br/>
-                        <i className="fa fa-envelope-o colored"/>
+                        <i className={ICON.envelope}/>
                         <input name="email"
                                value={formik.values.email}
                                onChange={formik.handleChange}
-                               className='edit-user-input'
+                               className={CLASS.editUserInput}
                                defaultValue={userData.email}/>
                         {formik.errors.email ? (<div>{formik.errors.email}</div>) : null}
                         <br/>
-                        <i className="fa fa-balance-scale colored"/>
+                        <i className={ICON.scale}/>
                         <input name="weight"
                                value={formik.values.weight}
                                onChange={formik.handleChange}
-                               className='edit-user-input'
+                               className={CLASS.editUserInput}
                                defaultValue={userData.weight?userData.weight:0}/>
                         {formik.errors.weight ? (<div>{formik.errors.weight}</div>) : null}
                         <br/>
-                        <i className="fa fa-arrows-v colored"/>
+                        <i className={ICON.arrowsV}/>
                         <input name="height"
                                value={formik.values.height}
                                onChange={formik.handleChange}
-                               className='edit-user-input'
+                               className={CLASS.editUserInput}
                                defaultValue={userData.height? userData.height: 0}/>
                         {formik.errors.height ? (<div>{formik.errors.height}</div>) : null}
                         <br/>
-                        <DropdownButton className='styled-dropdown' id="dropdown-item-button-edit-user" title={language} onClick={e=>e.preventDefault()}>
+                        <DropdownButton className={CLASS.styledDropdown}
+                                        id="dropdown-item-button-edit-user" title={language} onClick={e=>e.preventDefault()}>
                             <Dropdown.Item as="button" onSelect={()=> setLanguage(languageName.english)}>english</Dropdown.Item>
                             <Dropdown.Item as="button" onSelect={()=>setLanguage(languageName.italian)}>italian</Dropdown.Item>
                             <Dropdown.Item as="button" onSelect={()=>setLanguage(languageName.dutch)}>dutch</Dropdown.Item>
@@ -128,9 +142,9 @@ export const EditUserData = () => {
                         </DropdownButton>
 
                         <button type='submit'
-                                className='btn btn-edit confirm'
+                                className={CLASS.buttonConfirm}
                                 aria-label='confirm'>
-                            <i className="fa fa-check confirm"/>
+                            <i className={ICON.checkConfirm}/>
                         </button>
                     </form>
                     </div>

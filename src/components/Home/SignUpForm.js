@@ -6,33 +6,32 @@ import { useHistory } from "react-router-dom";
 import { closeAllModals } from "../../utils/closeAllModals";
 import { AllowGeolocation } from "./AllowGeolocation";
 import { languageName } from "../../utils/translations";
-
-const required = 'Required';
+import {CLASS, MESSAGE, PLACEHOLDER} from "../../utils/enums";
 
 const validate = values => {
-    const errors = {};
+    const enums = {};
     if (!values.password) {
-        errors.password = required;
+        enums.password = MESSAGE.required;
     } else if (values.password.length < 8) {
-        errors.password = 'Must be longer than 8 characters';
+        enums.password = MESSAGE.longerThan;
     } else if (!/[A-Z]/.test(values.password)) {
-        errors.password = 'Must contain at least 1 capital letter';
+        enums.password = MESSAGE.capital;
     } else if (!/[a-z]/.test(values.password)) {
-        errors.password = 'Must contain at least 1 lowercase letter';
+        enums.password = MESSAGE.lowercase;
     } else if (!/[@#$^+=!]/.test(values.password)) {
-        errors.password = 'Must contain at least 1 special character';
+        enums.password = MESSAGE.specialChar;
     } else if (!/[0-9]/.test(values.password)) {
-        errors.password = 'Must contain at least 1 number';
+        enums.password = MESSAGE.number;
     }
     if (!values.email) {
-        errors.email =required;
+        enums.email = MESSAGE.required;
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'invalid email';
+        enums.email = MESSAGE.invalidEmail;
     }
     if (!values.username) {
-        errors.username = required;
+        enums.username = MESSAGE.required;
     }
-    return errors;
+    return enums;
 };
 
 export const SignUpForm = () => {
@@ -79,31 +78,31 @@ export const SignUpForm = () => {
         <form autoComplete="off" onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e)}} noValidate>
             <input
                 name='username'
-                className='modal-input'
+                className={CLASS.modalInput}
                 id="username"
-                placeholder="username"
+                placeholder={PLACEHOLDER.username}
                 onChange={formik.handleChange}
                 value={formik.values.username}/>
-            { formik.errors.username ? <div className='errors'>{formik.errors.username}</div> : null}
+            { formik.enums.username ? <div className={CLASS.enums}>{formik.enums.username}</div> : null}
 
             <input
                 name="email"
                 type="email"
-                className='modal-input'
+                className={CLASS.modalInput}
                 id="email"
-                placeholder="email"
+                placeholder={PLACEHOLDER.email}
                 onChange={formik.handleChange}
                 value={formik.values.email}/>
-            { formik.errors.email ? <div className='errors'>{formik.errors.email}</div> : null}
+            { formik.enums.email ? <div className={CLASS.enums}>{formik.enums.email}</div> : null}
             <input
                 name="password"
                 type="password"
-                className='modal-input'
+                className={CLASS.modalInput}
                 id="password"
-                placeholder="password"
+                placeholder={PLACEHOLDER.password}
                 onChange={formik.handleChange}
                 value={formik.values.password}/>
-            { formik.errors.password ? <div className='errors'>{formik.errors.password}</div> : null}
+            { formik.enums.password ? <div className={CLASS.enums}>{formik.enums.password}</div> : null}
 
             <DropdownButton id="dropdown-item-button" title={language} onClick={e=>e.preventDefault()}>
                 <Dropdown.Item as="button" onSelect={()=> setLanguage(languageName.english)}>english</Dropdown.Item>
@@ -115,7 +114,7 @@ export const SignUpForm = () => {
             <br/>
             <AllowGeolocation />
             <br/>
-            <button type="submit" className="btn btn-modal">sign up</button>
+            <button type="submit" className={CLASS.buttonModal}>sign up</button>
         </form>
     )
 }

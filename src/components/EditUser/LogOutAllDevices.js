@@ -1,6 +1,7 @@
 import React , { useEffect, useState } from 'react'
 import { usePlanContext } from "../../context/context";
 import { useHistory } from "react-router-dom";
+import { CLASS, ICON } from "../../utils/enums";
 
 export const LogOutAllDevices = () => {
     const { token, setUserData, setFinishedDays, setToken, reqUrl } = usePlanContext();
@@ -32,20 +33,20 @@ export const LogOutAllDevices = () => {
             {clicked ? <div>
                     <button onClick={handleLogOutAll}
                             aria-label='log out from all places'
-                            className='btn btn-edit'>
-                        <i className="fa fa-globe"/>
+                            className={CLASS.button}>
+                        <i className={ICON.globe}/>
                     </button>
                     <button onClick={()=>setClicked(false)}
                             aria-label='close'
-                            className='btn btn-edit'>
-                        <i className="fa fa-times"/>
+                            className={CLASS.button}>
+                        <i className={ICON.x}/>
                     </button>
                 </div>
                 :
                 <button onClick={()=>setClicked(true)}
                         aria-label='log out'
-                        className='btn btn-edit'>
-                    <i className="fa fa-sign-out"/>
+                        className={CLASS.button}>
+                    <i className={ICON.signOut}/>
                 </button>
             }
             </div>

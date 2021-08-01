@@ -3,6 +3,7 @@ import { Header } from "../Header/Header";
 import { AdminEditUser } from "./AdminEditUser";
 import { AdminAddsPlan } from "./AdminAddsPlan";
 import { AdminUpdatesPlan } from "./AdminUpdatesPlan";
+import { CLASS, ICON } from "../../utils/enums";
 
 
 export const AdminPage = () => {
@@ -11,24 +12,24 @@ export const AdminPage = () => {
     const [adminUpdatesPlan, setAdminUpdatesPlan]= useState(false)
 
     return(
-        <div className='admin-page'>
+        <div className={CLASS.adminPage}>
             <Header/>
-            <h4 className='admin-title'><i className="fa fa-lock fa-3x"/></h4>
+            <h4 className={CLASS.adminTitle}><i className={ICON.lock}/></h4>
             <div>
                 <AdminEditUser />
             </div>
-            <div><i className="fa fa-list fa-2x "/></div>
-            <div className='admin-plans'>
+            <div><i className={ICON.list}/></div>
+            <div className={CLASS.adminPlans}>
                 {addPlan ?
                     <div>
                         <AdminAddsPlan />
-                        <button className='admin-buttons'
+                        <button className={CLASS.adminButtons}
                                 onClick={() => setAddPlan(false)}>
-                            <i className="fa fa-times" aria-hidden="true"/>
+                            <i className={ICON.x}aria-hidden="true"/>
                         </button>
                     </div>
                     :
-                    <button className='admin-buttons'
+                    <button className={CLASS.adminButtons}
                             aria-label='add a new plan'
                             onClick={() => setAddPlan(true)}>
                         add a new plan
@@ -38,14 +39,14 @@ export const AdminPage = () => {
                 {adminUpdatesPlan ?
                     <div>
                         <AdminUpdatesPlan />
-                        <button className='admin-buttons'
+                        <button className={CLASS.adminButtons}
                                 aria-label='close'
                                 onClick={() => setAdminUpdatesPlan(false)}>
-                            <i className="fa fa-times" aria-hidden="true"/>
+                            <i className={ICON.x} aria-hidden="true"/>
                         </button>
                     </div>
                     :
-                    <button className='admin-buttons'
+                    <button className={CLASS.adminButtons}
                             aria-label='update a plan'
                             onClick={() => setAdminUpdatesPlan(true)}>
                         update a plan

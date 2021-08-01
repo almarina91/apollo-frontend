@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { usePlanContext } from "../../context/context";
 import { useHistory } from "react-router-dom";
 import { deletingAccount } from "../../utils/translations";
+import {CLASS, ICON} from "../../utils/enums";
 
 export const DeleteAccount = () => {
     const { token, setUserData, userData, setFinishedDays, setToken, reqUrl } = usePlanContext();
@@ -25,27 +26,27 @@ export const DeleteAccount = () => {
         }
     }, [remove])
     return (
-        <div className='controls'>
+        <div className={CLASS.controls}>
             {confirmButton ?
             <>
                 <span>{deletingAccountText}, {userData.username}?</span>
                 <br/>
                 <button onClick={()=>setRemove(true)}
                         aria-label='confirm'
-                        className='btn btn-edit'>
-                    <i className="fa fa-check"/>
+                        className={CLASS.button}>
+                    <i className={ICON.check}/>
                 </button>
                 <button onClick={()=>setConfirmButton(false)}
                         aria-label='close'
-                        className='btn btn-edit confirm'>
-                    <i className="fa fa-times"/>
+                        className={CLASS.buttonConfirm}>
+                    <i className={ICON.x}/>
                 </button>
             </>
             :
             <button onClick={()=>setConfirmButton(true)}
                     aria-label='delete account'
-                    className='btn btn-edit'>
-                <i className="fa fa-trash"/>
+                    className={CLASS.button}>
+                <i className={ICON.trashFull}/>
             </button>
             }
         </div>

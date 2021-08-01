@@ -4,6 +4,7 @@ import { usePlanContext } from '../../context/context'
 import { useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion'
 import { variantsItems } from "../../utils/animationVariations";
+import { CLASS } from "../../utils/enums";
 
 
 export const Days = () => {
@@ -31,11 +32,8 @@ export const Days = () => {
         history.push('./intervals')
     }
 
-    const notFinished='data-field-not-finished';
-    const finished='data-field-finished';
-
     return (
-        <div className='main-container'>
+        <div className={CLASS.mainContainer}>
             <Header />
             <AnimatePresence>
                 {days.map(day =>
@@ -45,7 +43,7 @@ export const Days = () => {
                             key={day._id}
                             aria-label={day[languageProperty]}
                             data-dayid={day._id}
-                            className={userData.language && finishedDays.has(day._id) ? finished : notFinished}
+                            className={userData.language && finishedDays.has(day._id) ? CLASS.finished : CLASS.notFinished}
                             onClick={e => goToIntervals(e)}>{day[languageProperty]}</motion.button>)
                 }
             </AnimatePresence>

@@ -5,6 +5,7 @@ import { useDimensions } from "./useDimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import { sidebar } from "../../../utils/animationVariations";
+import { CLASS } from "../../../utils/enums";
 
 export const HeaderDropdown = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
@@ -18,7 +19,7 @@ export const HeaderDropdown = () => {
             custom={height}
             ref={containerRef}
         >
-            <motion.div className="background" variants={sidebar} />
+            <motion.div className={CLASS.background} variants={sidebar} />
             <Navigation />
             <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>

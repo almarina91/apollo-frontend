@@ -4,18 +4,19 @@ import { PasswordChange } from "./PasswordChange";
 import { LogOutAllDevices } from "./LogOutAllDevices";
 import { DeleteAccount } from "./DeleteAccount";
 import { EditUserData } from "./EditUserData";
+import { CLASS, ICON } from "../../utils/enums";
 
 export const EditUser = () => {
     return (
-        <div className='editing'>
+        <div className={CLASS.edit}>
             <Header />
-            <div className='edit-user'>
-                <i className="fa fa-user fa-4x"/>
+            <div className={CLASS.editUser}>
+                <i className={ICON.user4x}/>
                 <EditUserData />
             </div>
             <div>
-                <div className='settings'>
-                    <div><i className="fa fa-cog fa-4x"/></div>
+                <div className={CLASS.settings}>
+                    <div><i className={ICON.settings}/></div>
                     <PasswordChange />
                     <LogOutAllDevices />
                     <DeleteAccount />

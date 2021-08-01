@@ -1,16 +1,17 @@
 import React from 'react';
 import { usePlanContext } from "../../context/context";
+import { CLASS, ICON } from "../../utils/enums";
 
 export const SignInButton = () => {
     const { setModalType } = usePlanContext()
     return (
         <button type="button"
-                className='btn btn-intro'
+                className={CLASS.buttonIntro}
                 data-toggle="modal"
                 data-target="#Modal"
                 aria-label="sign in"
                 onClick={()=>setModalType('signIn')}>
-            <i className="fa fa-user"/>
+            <i className={ICON.user}/>
         </button>
 )
 }

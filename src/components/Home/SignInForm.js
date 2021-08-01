@@ -4,20 +4,19 @@ import { usePlanContext } from "../../context/context";
 import { useHistory } from "react-router-dom";
 import { closeAllModals } from "../../utils/closeAllModals";
 import { AllowGeolocation } from "./AllowGeolocation";
-
-const required = 'Required';
+import { CLASS, MESSAGE, PLACEHOLDER } from "../../utils/enums";
 
 const validate = values => {
-    const errors = {};
+    const enums = {};
     if (!values.email) {
-        errors.email = required;
+        enums.email = MESSAGE.required;
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email';
+        enums.email = MESSAGE.invalidEmail;
     }
     if (!values.password) {
-        errors.password = required;
+        enums.password = MESSAGE.required;
     }
-    return errors;
+    return enums;
 };
 
 export const SignInForm = () => {
@@ -74,30 +73,30 @@ export const SignInForm = () => {
 
     return(
         <form autoComplete="off">
-            <input className='modal-input'
+            <input className={CLASS.modalInput}
                    data-testid="required-input-email"
                    type='email'
                    name='email'
                    onChange={formik.handleChange}
                    value={formik.values.email}
                    placeholder="email" />
-            { formik.errors.email ? <div className='errors'>{formik.errors.email}</div> : null}
-            <input className='modal-input'
-                   placeholder="password"
+            { formik.enums.email ? <div className='enums'>{formik.enums.email}</div> : null}
+            <input className={CLASS.modalInput}
+                   placeholder={PLACEHOLDER.password}
                    data-testid="required-input-password"
                    type='password'
                    name='password'
                    onChange={formik.handleChange}
                    value={formik.values.password}
             />
-            { formik.errors.password ?
-                <div className='errors'>{formik.errors.password}</div>
+            { formik.enums.password ?
+                <div className={CLASS.enums}>{formik.enums.password}</div>
                 :
                 null}
             {errorMessage ?
                 <div>
                     <br/>
-                    <span className='errors'>Invalid data</span>
+                    <span className={CLASS.enums}>Invalid data</span>
                     <br/>
                 </div>
                 :
@@ -105,7 +104,7 @@ export const SignInForm = () => {
             <AllowGeolocation/>
             <button type="button"
                     onClick={(event) => submitHandler(event)}
-                    className="btn btn-modal">
+                    className={CLASS.buttonModal}>
                 sign in
             </button>
         </form>

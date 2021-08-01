@@ -2,19 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePlanContext } from "../../context/context";
+import { CLASS, ICON } from "../../utils/enums";
 
 const Switch = ({ isOn, ...rest }) => {
     const customClassName =
         `toggleSwitch ${isOn ? "on" : "off"}`;
 
     return (
-        <div className='geolocation-container'>
+        <div className={CLASS.geolocation}>
             <br/>
-            <span className='geolocation-text'>allow location data</span>
+            <span className={CLASS.geolocationText}>allow location data</span>
             <motion.div animate className=
                 {customClassName} {...rest}>
                 <motion.div animate>
-                    <i className='fa fa-circle white'/>
+                    <i className={ICON.circle}/>
                 </motion.div>
             </motion.div>
         </div>

@@ -5,20 +5,21 @@ import { FinishedData } from "./FinishedData";
 import { AnimatePresence, motion } from 'framer-motion';
 import { congrats, languageName, allowGeolocation } from "../../utils/translations";
 import { variantsTitle } from "../../utils/animationVariations";
+import {CLASS} from "../../utils/enums";
 
 export const Finished = () => {
     const { userData } = usePlanContext()
     const language = userData.language || languageName.english;
 
     return (
-        <div className='main-container'>
+        <div className={CLASS.mainContainer}>
             <Header />
             <Suspense fallback={<div> Calculating results... </div>}>
             <AnimatePresence>
                 <motion.h1 variants={variantsTitle}
                            initial='hidden'
                            animate='visible'
-                           className='finished-text'>
+                           className={CLASS.finishedText}>
                     {congrats[language]}{userData.username ? `, ${userData.username}!` : `!`}
                 </motion.h1>
                 {navigator.geolocation

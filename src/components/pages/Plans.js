@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import { variantsItems } from "../../utils/animationVariations";
+import {CLASS} from "../../utils/enums";
 
 export const Plans = () => {
     const {plans, userData, setCurrentPlan, token, setFinishedDays, fetchPlansAgain, setFetchPlansAgain, reqUrl } = usePlanContext();
@@ -26,7 +27,7 @@ export const Plans = () => {
             .catch(e=>console.log(e))
     }, [fetchPlansAgain])
     return (
-        <div className='main-container'>
+        <div className={CLASS.mainContainer}>
             <Header />
             <AnimatePresence>
                 {plans.map((plan, index)=>
@@ -35,7 +36,7 @@ export const Plans = () => {
                                    animate='visible'
                                    aria-label={plan[languageProperty]}
                                    data-plan-index={index}
-                                   className='data-field-not-finished'
+                                   className={CLASS.notFinished}
                                    onClick={e=>goToDays(e)}>{plan[languageProperty]}</motion.button>)}
             </AnimatePresence>
             </div>

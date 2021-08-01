@@ -1,6 +1,7 @@
 import { usePlanContext } from "../../context/context";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+import { CLASS, MESSAGE } from "../../utils/enums";
 
 
 export const AdminUpdatesPlan = () => {
@@ -25,12 +26,17 @@ export const AdminUpdatesPlan = () => {
 
     return(
         <div>
-            <DropdownButton id='dropdown-btn-admin-plan' title={selectedPlan.englishName?selectedPlan.englishName:'find a plan'}>
-                {plans.map(plan => <Dropdown.Item data-planID={plan._id} onSelect={()=>setSelectedPlan(plan)}>{plan.englishName}</Dropdown.Item>)}
+            <DropdownButton id='dropdown-btn-admin-plan'
+                            title={selectedPlan.englishName ? selectedPlan.englishName : MESSAGE.findPlan}>
+                {plans.map(plan =>
+                    <Dropdown.Item data-planID={plan._id}
+                                   onSelect={()=>setSelectedPlan(plan)}>
+                        {plan.englishName}
+                    </Dropdown.Item>)}
             </DropdownButton>
             <br/>
             {message ? <span>plan removed</span> : null}
-            <button className='admin-buttons'
+            <button className={CLASS.adminButtons}
                     onClick={()=>setRemove(true)}>
                 remove selected plan
             </button>

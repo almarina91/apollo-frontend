@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { variantsButtons as variants } from "../../utils/animationVariations";
+import { CLASS, ICON } from "../../utils/enums";
 
 export const LogOutButton = () => {
     let history = useHistory();
@@ -31,9 +32,9 @@ export const LogOutButton = () => {
         <motion.li variants={variants}
                        whileHover={{ scale: 1.1 }}
                        whileTap={{ scale: 0.95 }}
-                       className='icon-placeholder'
+                       className={CLASS.icon}
                        onClick={handleLogOut}>
-                        <i className="fa fa-sign-out fa-2x"/>
+                        <i className={ICON.signOut2x}/>
         </motion.li>
     )
 }

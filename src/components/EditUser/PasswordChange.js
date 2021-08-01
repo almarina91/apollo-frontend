@@ -8,6 +8,7 @@ import { passwordChange,
         passwordSpecialCharacters,
         passwordContainsNumber,
         passwordSaved} from "../../utils/translations";
+import { CLASS, ICON, MESSAGE } from "../../utils/enums";
 
 export const PasswordChange = () => {
     // getting data from context
@@ -58,7 +59,7 @@ export const PasswordChange = () => {
                 .then(res => res.json())
                 .then(()=>setPatch(false))
                 .then(()=>setMessage(passwordSaved[userData.language]))
-                .catch(e => setMessage('Something went wrong, try again later'))
+                .catch(e => setMessage(MESSAGE.tryLater))
         }
     }, [patch])
 
@@ -68,7 +69,7 @@ export const PasswordChange = () => {
                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
                     <input type='password'
                            name='password'
-                           className='edit-user-input'
+                           className={CLASS.editUserInput}
                            placeholder={passwordChangeText}
                            onChange={formik.handleChange}
                            value={formik.values.password}
@@ -77,23 +78,24 @@ export const PasswordChange = () => {
                     {message}
                     { formik.errors.password ?
                         <div>{formik.errors.password}</div> :
-                        <button className='btn btn-edit'
+                        <button className={CLASS.button}
                                 aria-label='confirm'
                                 type='submit'>
-                            <i className="fa fa-check"/>
-                        </button>}
-                    <button className='btn btn-edit'
+                            <i className={ICON.check}/>
+                        </button>
+                    }
+                    <button className={CLASS.button}
                             aria-label='close'
                             onClick={()=> {
                                 setUpdatePassword(false)
                                 setMessage('')}}>
-                        <i className="fa fa-times"/>
+                        <i className={ICON.x}/>
                     </button>
                 </form>
-                : <button className='btn btn-edit'
+                : <button className={CLASS.button}
                           aria-label='change password'
                           onClick={()=> setUpdatePassword(true)}>
-                    <i className="fa fa-key"/>
+                    <i className={ICON.key}/>
                 </button>
             }
         </div>

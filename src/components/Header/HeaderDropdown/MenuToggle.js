@@ -1,5 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
+import { CLASS } from "../../../utils/enums";
 
 const Path = props => (
     <motion.path
@@ -12,7 +13,7 @@ const Path = props => (
 );
 
 export const MenuToggle = ({ toggle }) => (
-    <button className='button-header'
+    <button className={CLASS.buttonHeader}
             aria-label='options'
             onClick={toggle}>
         <svg width="20" height="20" viewBox="0 0 23 23">

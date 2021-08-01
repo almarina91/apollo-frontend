@@ -5,12 +5,13 @@ import { SignInButton } from "./SignInButton";
 import { SignUpButton } from "./SignUpButton";
 import { AnimatePresence, motion } from 'framer-motion'
 import { variantsTitle } from "../../utils/animationVariations";
+import { CLASS } from "../../utils/enums";
 
 export const Home = () => {
     return (
-        <div className='home'>
+        <div className={CLASS.home}>
             <Modal />
-            <div className='intro-content'>
+            <div className={CLASS.intro}>
                 <AnimatePresence>
                     <motion.h1 variants={variantsTitle}
                                initial='hidden'

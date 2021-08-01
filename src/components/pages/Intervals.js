@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion'
 import { run, walk, languageName } from "../../utils/translations";
 import { variantsArrow } from "../../utils/animationVariations";
+import {CLASS, ICON} from "../../utils/enums";
 
 export const Intervals = () => {
     const { currentDayId, totalIntervals, setTotalIntervals, intervals, setIntervals, userData, reqUrl } = usePlanContext()
@@ -32,16 +33,18 @@ export const Intervals = () => {
     }, [intervals])
 
     return (
-        <div className='main-container'>
+        <div className={CLASS.mainContainer}>
             <Header />
             <AnimatePresence>
                 <motion.button variants={variantsArrow}
                                initial='hidden'
                                animate='visible'
-                               className='start-button'
-                               onClick={()=>history.push('/timer')}><i className="fa fa-arrow-circle-right"/></motion.button>
-                <p className='total-intervals'>
-                    <i className='fa fa-clock-o'/> {new Date(totalIntervals * 1000).toISOString().substr(14, 5)}</p>
+                               className={CLASS.buttonStart}
+                               onClick={()=>history.push('/timer')}>
+                    <i className={ICON.arrowCircle}/>
+                </motion.button>
+                <p className={CLASS.totalIntervals}>
+                    <i className={ICON.clock}/> {new Date(totalIntervals * 1000).toISOString().substr(14, 5)}</p>
                 {intervals.map(interval=>
                     (interval.type === 'run') ?
                         <p key={interval._id}>{run[language]}, {interval.seconds}</p> :

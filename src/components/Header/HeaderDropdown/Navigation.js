@@ -5,6 +5,7 @@ import { usePlanContext } from "../../../context/context";
 import { useHistory } from "react-router-dom";
 import { variantsButtons } from "../../../utils/animationVariations";
 import { salutation, languageName } from "../../../utils/translations";
+import {CLASS, ICON, ROLE} from "../../../utils/enums";
 
 export const Navigation = () => {
     const { userData } = usePlanContext();
@@ -15,41 +16,41 @@ export const Navigation = () => {
         <motion.ul>
             {userData.username ?
                 <motion.li variants={variantsButtons}
-                           className='icon-placeholder-title'>{salutation[language]}, {userData.username}</motion.li>
+                           className={CLASS.iconTitle}>{salutation[language]}, {userData.username}</motion.li>
                 :
-                <motion.li className='icon-placeholder-title'
+                <motion.li className={CLASS.iconTitle}
                            variants={variantsButtons}>Hello, user</motion.li>}
             {userData.username ?
                 <>
-                    {(userData.role === 'admin') ?
+                    {(userData.role === ROLE.admin) ?
                         <motion.li variants={variantsButtons}
                                        whileHover={{ scale: 1.1 }}
                                        whileTap={{ scale: 0.95 }}
-                                       className='icon-placeholder'
+                                       className={CLASS.icon}
                                        onClick={() => history.push('/admin')}>
-                            <i className="fa fa-lock fa-2x"/></motion.li>
+                            <i className={ICON.lock2x}/></motion.li>
                         : null
                     }
                     <motion.li variants={variantsButtons}
                                    whileHover={{ scale: 1.1 }}
                                    whileTap={{ scale: 0.95 }}
-                                   className='icon-placeholder'
+                                   className={CLASS.icon}
                                    onClick={() => history.push('/plans')}>
-                        <i className="fa fa-th-list fa-2x"/></motion.li>
+                        <i className={ICON.listTh}/></motion.li>
                     <motion.li variants={variantsButtons}
                                    whileHover={{ scale: 1.1 }}
                                    whileTap={{ scale: 0.95 }}
-                                   className='icon-placeholder'
+                                   className={CLASS.icon}
                                    onClick={() => history.push('/editUser')}>
-                        <i className="fa fa-cogs fa-2x"/></motion.li>
+                        <i className={ICON.cogs2x}/></motion.li>
                     <LogOutButton/>
                 </>
                 : <motion.li variants={variantsButtons}
                                  whileHover={{ scale: 1.1 }}
                                  whileTap={{ scale: 0.95 }}
-                                 className='icon-placeholder'
+                                 className={CLASS.icon}
                                  onClick={()=>history.push('/home')}>
-                    <i className="fa fa-user-plus fa-2x"/></motion.li>
+                    <i className={ICON.userPlus2x}/></motion.li>
             }
         </motion.ul>
     )

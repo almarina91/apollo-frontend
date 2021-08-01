@@ -2,23 +2,24 @@ import React, { useEffect, useState } from "react";
 import { usePlanContext } from "../../context/context";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useFormik } from 'formik';
+import {CLASS, ICON, LANGUAGE, MESSAGE} from "../../utils/enums";
 
 // formik validation of updated user info
 const validate = values => {
     const errors = {};
     if (!values.email) {
-        errors.email = 'Required';
+        errors.email = MESSAGE.required;
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email';
+        errors.email = MESSAGE.invalidEmail;
     }
     if (!values.username) {
-        errors.username = 'Required';
+        errors.username = MESSAGE.required;
     }
     if (!/^\d+$/.test(values.weight)) {
-        errors.weight = 'insert valid weight in kgs';
+        errors.weight = MESSAGE.invalidWeight;
     }
     if (!/^\d+$/.test(values.height)) {
-        errors.height = 'insert valid height in cm';
+        errors.height = MESSAGE.invalidHeight;
     }
     return errors;
 };
@@ -63,7 +64,7 @@ export const AdminEditUser = () => {
                 .then(() => setUpdateUsersList(true))
                 .then(()=> setMessage(true))
                 .then(()=>setUpdateUsersList(true))
-                .catch(e => console.log('something went wrong'))
+                .catch(e => console.log(MESSAGE.wrong))
         }
     } , [inputData])
 
@@ -96,11 +97,13 @@ export const AdminEditUser = () => {
 
     return(
         <div>
-            <div><i className="fa fa-user-plus fa-2x "/></div>
-            <div className='admin-user'>
+            <div><i className={ICON.userPlus2x}/></div>
+            <div className={CLASS.adminUser}>
                 {userUpdateVisible?
                     <div>
-                        <DropdownButton id="dropdown-item-button-admin" title={selectedUser.username?selectedUser.username:'find a user'} className='dropdown-users'>
+                        <DropdownButton id="dropdown-item-button-admin"
+                                        title={selectedUser.username ? selectedUser.username : MESSAGE.findUser}
+                                        className={CLASS.dropdownUsers}>
                             {userList.map(user => <Dropdown.Item data-userID={user._id} onSelect={()=>setSelectedUser(user)}>{user.username}</Dropdown.Item>)}
                         </DropdownButton>
                         {(Object.keys(selectedUser).length === 0) ?
@@ -110,104 +113,110 @@ export const AdminEditUser = () => {
                                 {updateSelectedUser ?
                                     <form onSubmit={formik.handleSubmit} autoComplete="off">
                                         <br/>
-                                        <span><i className="fa fa-user-o colored"/></span>
+                                        <span><i className={ICON.userO}/></span>
                                         <br/>
                                         <input name="username"
                                                value={formik.values.username}
                                                onChange={formik.handleChange}
-                                               className='admin-input'
+                                               className={CLASS.adminInput}
                                                defaultValue={selectedUser.username}/>
                                         {formik.errors.username ? (<div>{formik.errors.username}</div>) : null}
                                         <br/>
-                                        <span><i className="fa fa-envelope-o colored"/></span>
+                                        <span><i className={ICON.envelope}/></span>
                                         <br/>
                                         <input  name="email"
                                                 value={formik.values.email}
                                                 onChange={formik.handleChange}
-                                                className='admin-input'
+                                                className={CLASS.adminInput}
                                                 defaultValue={selectedUser.email}/>
                                         {formik.errors.email ? (<div>{formik.errors.email}</div>) : null}
                                         <br/>
-                                        <span><i className="fa fa-arrows-v colored"/></span>
+                                        <span><i className={ICON.arrowsV}/></span>
                                         <br/>
                                         <input name="height"
                                                value={formik.values.height}
                                                onChange={formik.handleChange}
-                                               className='admin-input'
+                                               className={CLASS.adminInput}
                                                defaultValue={selectedUser.height}/>
                                         {formik.errors.height ? (<div>{formik.errors.height}</div>) : null}
                                         <br/>
-                                        <span><i className="fa fa-balance-scale colored"/></span>
+                                        <span><i className={ICON.scale}/></span>
                                         <br/>
                                         <input name="weight"
                                                value={formik.values.weight}
                                                onChange={formik.handleChange}
-                                               className='admin-input'
+                                               className={CLASS.adminInput}
                                                defaultValue={selectedUser.weight}/>
                                         {formik.errors.weight ? (<div>{formik.errors.weight}</div>) : null}
                                         <br/>
-                                        <span><i className="fa fa-language colored"/></span>
+                                        <span><i className={ICON.language}/></span>
                                         <br/>
-                                        <DropdownButton id="dropdown-item-button-admin" title={language} onClick={e=>e.preventDefault()}>
-                                            <Dropdown.Item as="button" onSelect={()=> setLanguage('english')}>english</Dropdown.Item>
-                                            <Dropdown.Item as="button" onSelect={()=>setLanguage('italian')}>italian</Dropdown.Item>
-                                            <Dropdown.Item as="button" onSelect={()=>setLanguage('dutch')}>dutch</Dropdown.Item>
-                                            <Dropdown.Item as="button" onSelect={()=>setLanguage('serbian')}>serbian</Dropdown.Item>
-                                            <Dropdown.Item as="button" onSelect={()=>setLanguage('french')}>french</Dropdown.Item>
+                                        <DropdownButton id="dropdown-item-button-admin"
+                                                        title={language}
+                                                        onClick={e=>e.preventDefault()}>
+                                            <Dropdown.Item as="button" onSelect={()=> setLanguage(LANGUAGE.eng)}>english</Dropdown.Item>
+                                            <Dropdown.Item as="button" onSelect={()=>setLanguage(LANGUAGE.ita)}>italian</Dropdown.Item>
+                                            <Dropdown.Item as="button" onSelect={()=>setLanguage(LANGUAGE.nl)}>dutch</Dropdown.Item>
+                                            <Dropdown.Item as="button" onSelect={()=>setLanguage(LANGUAGE.ser)}>serbian</Dropdown.Item>
+                                            <Dropdown.Item as="button" onSelect={()=>setLanguage(LANGUAGE.fr)}>french</Dropdown.Item>
                                         </DropdownButton>
                                         {message? <span>user updated!</span>:null}
                                         <br/>
                                         <button type='submit'
                                                 aria-label='confirm'
-                                                className='admin-buttons'><i className="fa fa-check"/></button>
-                                        <button className='admin-buttons'
+                                                className={CLASS.adminButtons}><i className={ICON.check}/></button>
+                                        <button className={CLASS.adminButtons}
                                                 aria-label='close'
                                                 onClick={()=> {
                                             setUpdateSelectedUser(false);
                                             setMessage(false)
-                                        }}><i className="fa fa-times"/></button>
+                                        }}><i className={ICON.x}/></button>
                                     </form>
                                     :
                                     <div>
                                         <br/>
-                                        <span><i className="fa fa-user-o colored"/></span>
+                                        <span><i className={ICON.userO}/></span>
                                         <br/>
                                         <span> {selectedUser.username}</span>
                                         <br/>
-                                        <span><i className="fa fa-envelope-o colored"/></span>
+                                        <span><i className={ICON.envelope}/></span>
                                         <br/>
                                         <span> {selectedUser.email}</span>
                                         <br/>
-                                        <span><i className="fa fa-language colored"/></span>
+                                        <span><i className={ICON.language}/></span>
                                         <br/>
                                         <span> {selectedUser.language}</span>
                                         <br/>
-                                        <span><i className="fa fa-arrows-v colored"/></span>
+                                        <span><i className={ICON.arrowsV}/></span>
                                         <br/>
                                         <span> {selectedUser.height} cm</span>
                                         <br/>
-                                        <span><i className="fa fa-balance-scale colored"/></span>
+                                        <span><i className={ICON.scale}/></span>
                                         <br/>
                                         <span> {selectedUser.weight} kg</span>
                                         <br/>
-                                        <button className='admin-buttons'
+                                        <button className={CLASS.adminButtons}
                                                 aria-label='update selected user'
-                                                onClick={()=>setUpdateSelectedUser(true)}><i className="fa fa-pencil"/></button>
+                                                onClick={()=>setUpdateSelectedUser(true)}>
+                                            <i className={ICON.pencil}/>
+                                        </button>
                                     </div>
                                 }
-                                <button className='admin-buttons'
+                                <button className={CLASS.adminButtons}
                                         aria-label='delete user'
-                                        onClick={()=>setDeleteUser(true)}><i className="fa fa-trash-o"/></button>
+                                        onClick={()=>setDeleteUser(true)}>
+                                    <i className={ICON.trash}/>
+                                </button>
                             </div>
                         }
-                        <button className='admin-buttons'
+                        <button className={CLASS.adminButtons}
                                 aria-label='close'
                                 onClick={()=> {
                             setUserUpdateVisible(false)
                             setSelectedUser({})
-                        }}><i className="fa fa-times"/></button>
+                        }}><i className={ICON.x}/></button>
                     </div>
-                    :<button className='admin-buttons'
+                    :<button className={CLASS.adminButtons}
                              aria-label='update a user'
                              onClick={()=>setUserUpdateVisible(true)}>update a user</button>}
                 <br/>
