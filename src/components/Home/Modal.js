@@ -4,6 +4,10 @@ import { SignUpForm } from "./SignUpForm";
 import { SignInForm } from './SignInForm';
 import { CLASS, MODAL_TYPE } from "../../utils/enums";
 
+/**
+ * A component that returns a form for sign up or sign in.
+ */
+
 export const Modal = () => {
     const { modalType } = usePlanContext();
     return (

@@ -3,7 +3,17 @@ import { useFormik } from 'formik';
 import { usePlanContext } from "../../context/context";
 import { CLASS, ICON, MESSAGE, PLACEHOLDER } from "../../utils/enums";
 
-// validation of new plan inputs
+/**
+ * A component that allows admin to add a plan.
+ * @requires enums
+ * @returns input form
+ */
+
+/**
+ * Validates input data.
+ * @const errors - contains all the error messages.
+ */
+
 const validate = values => {
     const errors = {};
     if (!values.englishName) {
@@ -23,6 +33,14 @@ const validate = values => {
     }
     return errors;
 };
+
+/**
+ * A component that returns admin input form.
+ * @const formik - validates the input data
+ * @const inputData - contains all the input data that are validated by formik
+ * @const createPlan - when true, fetch is called with input data already set
+ * @const message - shows a message when a plan is created
+ */
 
 export const AdminAddsPlan = ()=> {
     const { token, reqUrl, setFetchPlansAgain } = usePlanContext();

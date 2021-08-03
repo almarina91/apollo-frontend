@@ -3,8 +3,17 @@ import { usePlanContext } from "../../context/context";
 import { useFormik } from 'formik';
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { required, insertValidWeight, insertValidHeight, invalidEmail, languageName } from "../../utils/translations";
-import {CLASS, ICON} from "../../utils/enums";
+import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns edit user data section.
+ * @const edit - when true, fetch is allowed
+ * @const inputUserData - contains input data that is validated
+ * @const language - contains selected language
+ * @const validate - checks if the input data is inserted
+ * @const formik - validates the input data
+ * @const editable - switches between displaying input form and not editable data
+ */
 
 export const EditUserData = () => {
     const { token, setUserData, userData, reqUrl } = usePlanContext();

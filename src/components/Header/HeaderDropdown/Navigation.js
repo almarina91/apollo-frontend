@@ -5,7 +5,12 @@ import { usePlanContext } from "../../../context/context";
 import { useHistory } from "react-router-dom";
 import { variantsButtons } from "../../../utils/animationVariations";
 import { salutation, languageName } from "../../../utils/translations";
-import {CLASS, ICON, ROLE} from "../../../utils/enums";
+import { CLASS, ICON, ROLE } from "../../../utils/enums";
+
+/**
+ * A navigation component.
+ * @const language - sets up language to be used
+ */
 
 export const Navigation = () => {
     const { userData } = usePlanContext();

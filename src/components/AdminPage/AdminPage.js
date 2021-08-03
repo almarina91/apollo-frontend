@@ -5,6 +5,11 @@ import { AdminAddsPlan } from "./AdminAddsPlan";
 import { AdminUpdatesPlan } from "./AdminUpdatesPlan";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns admin page.
+ * @const addPlan - when true, it displays AdminAddsPlan component
+ * @const adminUpdatesPlan - when true, it displays AdminUpdatesPlan component
+ */
 
 export const AdminPage = () => {
 

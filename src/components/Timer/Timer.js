@@ -8,7 +8,11 @@ import { useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion';
 import { variantsItems } from "../../utils/animationVariations";
 import { run, walk, languageName } from "../../utils/translations";
-import {CLASS, ICON} from "../../utils/enums";
+import { CLASS, ICON } from "../../utils/enums";
+
+/**
+ * A component that returns a timer.
+ */
 
 export const Timer = ()=> {
     const [shouldPlay, setShouldPlay] = useState(false)

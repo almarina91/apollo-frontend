@@ -7,11 +7,17 @@ import { passwordChange,
         passwordContainsLetters,
         passwordSpecialCharacters,
         passwordContainsNumber,
-        passwordSaved} from "../../utils/translations";
+        passwordSaved } from "../../utils/translations";
 import { CLASS, ICON, MESSAGE } from "../../utils/enums";
 
+/**
+ * A component that returns password change segment.
+ * @const validate - checks the input data
+ * @const formik - validates the input data
+ * @const passwordChangeText - description text in chosen language
+ */
+
 export const PasswordChange = () => {
-    // getting data from context
     const { token, userData, reqUrl } = usePlanContext();
 
     // component-specific states

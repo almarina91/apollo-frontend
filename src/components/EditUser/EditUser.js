@@ -6,6 +6,10 @@ import { DeleteAccount } from "./DeleteAccount";
 import { EditUserData } from "./EditUserData";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns editing user section.
+ */
+
 export const EditUser = () => {
     return (
         <div className={CLASS.edit}>

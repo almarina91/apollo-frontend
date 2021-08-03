@@ -2,6 +2,10 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { CLASS } from "../../../utils/enums";
 
+/**
+ * A button component that changes looks when pressed.
+ */
+
 const Path = props => (
     <motion.path
         fill="transparent"

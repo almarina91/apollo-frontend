@@ -6,7 +6,12 @@ import { useHistory } from "react-router-dom";
 import { closeAllModals } from "../../utils/closeAllModals";
 import { AllowGeolocation } from "./AllowGeolocation";
 import { languageName } from "../../utils/translations";
-import {CLASS, MESSAGE, PLACEHOLDER} from "../../utils/enums";
+import { CLASS, MESSAGE, PLACEHOLDER } from "../../utils/enums";
+
+/**
+ * A component that returns a sign up form.
+ * @const validate - validates input data
+ */
 
 const validate = values => {
     const enums = {};

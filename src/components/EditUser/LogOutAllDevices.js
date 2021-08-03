@@ -3,16 +3,18 @@ import { usePlanContext } from "../../context/context";
 import { useHistory } from "react-router-dom";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns logs out a user from all devices.
+ * @const logout - when true, fetch is performed
+ * @const clicked - changes visibility of the buttons
+ */
+
 export const LogOutAllDevices = () => {
     const { token, setUserData, setFinishedDays, setToken, reqUrl } = usePlanContext();
     const [logOut, setLogOut] = useState(false)
     const history = useHistory()
 
     const [clicked, setClicked] = useState(false);
-
-    const handleLogOutAll = () => {
-        setLogOut(true)
-    }
 
     useEffect(()=>{
         if(logOut){
@@ -31,7 +33,7 @@ export const LogOutAllDevices = () => {
     return (
         <div className='controls'>
             {clicked ? <div>
-                    <button onClick={handleLogOutAll}
+                    <button onClick={() => setLogOut(true)}
                             aria-label='log out from all places'
                             className={CLASS.button}>
                         <i className={ICON.globe}/>

@@ -3,6 +3,11 @@ import { useHistory } from "react-router-dom";
 import { HeaderDropdown } from "./HeaderDropdown/HeaderDropdown";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A header component.
+ * @coordinatesArray - coordinates that were saved while training.
+ */
+
 export const Header = () => {
     let history = useHistory();
     const {setCoordinatesArray, coordinatesArray } = usePlanContext();

@@ -6,6 +6,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { variantsItems } from "../../utils/animationVariations";
 import { CLASS } from "../../utils/enums";
 
+/**
+ * A component that returns all days of a plan
+ * @const planID - id of a current plan
+ * @const days - array of days of a current plan
+ * @const languageProperty - setting a language that user chose or setting a default english
+ */
 
 export const Days = () => {
     const { currentPlan, token, userData, setCurrentDayId, finishedDays, reqUrl } = usePlanContext()

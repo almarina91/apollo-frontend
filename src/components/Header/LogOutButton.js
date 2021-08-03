@@ -5,14 +5,15 @@ import { motion } from "framer-motion";
 import { variantsButtons as variants } from "../../utils/animationVariations";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns logout button.
+ * @const logout - when true, enables fetch
+ */
+
 export const LogOutButton = () => {
     let history = useHistory();
     const { token, setUserData, setToken, setFinishedDays, reqUrl } = usePlanContext();
     const [logOut, setLogOut] = useState(false)
-
-    const handleLogOut = () => {
-        setLogOut(true)
-    }
 
     useEffect(()=>{
         if(logOut){
@@ -33,7 +34,7 @@ export const LogOutButton = () => {
                        whileHover={{ scale: 1.1 }}
                        whileTap={{ scale: 0.95 }}
                        className={CLASS.icon}
-                       onClick={handleLogOut}>
+                       onClick={()=>setLogOut(true)}>
                         <i className={ICON.signOut2x}/>
         </motion.li>
     )

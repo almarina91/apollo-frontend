@@ -2,9 +2,19 @@ import React, { useEffect, useState } from "react";
 import { usePlanContext } from "../../context/context";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useFormik } from 'formik';
-import {CLASS, ICON, LANGUAGE, MESSAGE} from "../../utils/enums";
+import { CLASS, ICON, LANGUAGE, MESSAGE } from "../../utils/enums";
 
-// formik validation of updated user info
+
+/**
+ * A component that allows admin to edit a user.
+ * @requires enums
+ */
+
+/**
+ * Validates input data.
+ * @const errors - contains all the error messages.
+ */
+
 const validate = values => {
     const errors = {};
     if (!values.email) {
@@ -23,6 +33,13 @@ const validate = values => {
     }
     return errors;
 };
+
+/**
+ * A component that returns admin editing user section.
+ * @const formik - validates the input data
+ * @const inputData - contains all the input data that are validated by formik
+ * @const message - shows a message when a user is updated
+ */
 
 export const AdminEditUser = () => {
     const { token, reqUrl } = usePlanContext();

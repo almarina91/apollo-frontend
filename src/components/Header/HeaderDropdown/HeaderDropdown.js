@@ -7,6 +7,10 @@ import { Navigation } from "./Navigation";
 import { sidebar } from "../../../utils/animationVariations";
 import { CLASS } from "../../../utils/enums";
 
+/**
+ * A header dropdown component.
+ */
+
 export const HeaderDropdown = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);

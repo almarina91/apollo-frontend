@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import { usePlanContext } from "../../context/context";
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that asks for geolocation allowance.
+ * @const switch - on/off switcher
+ */
+
 const Switch = ({ isOn, ...rest }) => {
     const customClassName =
         `toggleSwitch ${isOn ? "on" : "off"}`;

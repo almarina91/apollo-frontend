@@ -6,6 +6,11 @@ import { closeAllModals } from "../../utils/closeAllModals";
 import { AllowGeolocation } from "./AllowGeolocation";
 import { CLASS, MESSAGE, PLACEHOLDER } from "../../utils/enums";
 
+/**
+ * A component that returns a sign in form.
+ * @const validate - validates input fields
+ */
+
 const validate = values => {
     const enums = {};
     if (!values.email) {

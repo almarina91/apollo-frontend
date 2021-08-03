@@ -5,7 +5,11 @@ import { FinishedData } from "./FinishedData";
 import { AnimatePresence, motion } from 'framer-motion';
 import { congrats, languageName, allowGeolocation } from "../../utils/translations";
 import { variantsTitle } from "../../utils/animationVariations";
-import {CLASS} from "../../utils/enums";
+import { CLASS } from "../../utils/enums";
+
+/**
+ * A component that returns a page that shows when a training is finished.
+ */
 
 export const Finished = () => {
     const { userData } = usePlanContext()

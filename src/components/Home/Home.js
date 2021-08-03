@@ -7,6 +7,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { variantsTitle } from "../../utils/animationVariations";
 import { CLASS } from "../../utils/enums";
 
+/**
+ * A home page component.
+ */
+
 export const Home = () => {
     return (
         <div className={CLASS.home}>

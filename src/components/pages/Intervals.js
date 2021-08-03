@@ -5,7 +5,11 @@ import { useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from 'framer-motion'
 import { run, walk, languageName } from "../../utils/translations";
 import { variantsArrow } from "../../utils/animationVariations";
-import {CLASS, ICON} from "../../utils/enums";
+import { CLASS, ICON } from "../../utils/enums";
+
+/**
+ * A component that returns all intervals of a day.
+ */
 
 export const Intervals = () => {
     const { currentDayId, totalIntervals, setTotalIntervals, intervals, setIntervals, userData, reqUrl } = usePlanContext()

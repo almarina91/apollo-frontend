@@ -4,7 +4,11 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import { variantsItems } from "../../utils/animationVariations";
-import {CLASS} from "../../utils/enums";
+import { CLASS } from "../../utils/enums";
+
+/**
+ * A component that returns all plans available.
+ */
 
 export const Plans = () => {
     const {plans, userData, setCurrentPlan, token, setFinishedDays, fetchPlansAgain, setFetchPlansAgain, reqUrl } = usePlanContext();

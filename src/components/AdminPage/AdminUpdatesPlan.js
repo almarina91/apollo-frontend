@@ -3,6 +3,12 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { CLASS, MESSAGE } from "../../utils/enums";
 
+/**
+ * A component that returns a section for admin to remove a plan.
+ * @const selectedPlan - a plan selected to be removed
+ * @const remove - when true, the fetch is enabled
+ * @const message - when true, it displays a message that the plan is updated
+ */
 
 export const AdminUpdatesPlan = () => {
     const { plans, token, setFetchPlansAgain, reqUrl } = usePlanContext();

@@ -3,6 +3,10 @@ import { usePlanContext } from "../../context/context";
 import getPathLength from 'geolib/es/getPathLength';
 import { CLASS, ICON } from "../../utils/enums";
 
+/**
+ * A component that returns all data about the training finished.
+ */
+
 export const FinishedData = () => {
     const { totalIntervals, userData, coordinatesObject} = usePlanContext()
 
