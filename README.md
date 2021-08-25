@@ -1,71 +1,31 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+![Logo](images/logo80.png)
 
-  <h3 align="center">project_title</h3>
+#Apollo
 
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
-</p>
+**Running App**
 
+ [Explore the docs »](https://github.com/almarina91/apollo-frontend)
 
+ [View demo](https://almarina91apollo.github.io) *
 
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
+ *please allow some time for server to respond, since the app is hosted on Heroku free tier.*
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Easy to use app that tracks your progress in following one of the running plans provided.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This app offers all the basic functionalities of a running app. If allowed, it also displays the distance, calories burned, time and more.
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+![Logo](images/apollomockup.png)
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [MongoDB]()
+* [Express]()
+* [React]()
+* [Node.js]()
 
 
 
@@ -86,7 +46,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/almarina91/apollo-frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -97,18 +57,14 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+The app is easy to use. A user has to select one of the provided running plans, then a day that was not finished yet (finished days are highlighted). This brings the user to the timer page that instructs the user how to run. At the end of the intervals for that day, if allowed, user can see the stats for the run.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+![Logo](images/apollo%20gif.gif)
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
+See the [open issues](https://github.com/almarina91/apollo-frontend/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTRIBUTING -->
@@ -134,9 +90,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Marina Grujic - almarina91@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/almarina91/apollo-frontend](https://github.com/almarina91/apollo-frontend)
 
 
 
@@ -153,15 +109,15 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/almarina91/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/almarina91/apollo-frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/almarina91/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/almarina91/apollo-frontend/network/members
+[stars-shield]: https://img.shields.io/github/stars/almarina91/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/almarina91/apollo-frontend/stargazers
+[issues-shield]: https://img.shields.io/github/issues/almarina91/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/almarina91/apollo-frontend/issues
+[license-shield]: https://img.shields.io/github/license/almarina91/repo.svg?style=for-the-badge
+[license-url]: https://github.com/almarina91/apollo-frontend/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/almarina91
