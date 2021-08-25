@@ -6,9 +6,9 @@
 
  [Explore the docs »](https://github.com/almarina91/apollo-frontend)
 
- [View demo](https://almarina91apollo.github.io) *
+ [View demo (*please allow some time for server to respond, since the app is hosted on Heroku free tier.*)](https://almarina91apollo.github.io)
 
- *please allow some time for server to respond, since the app is hosted on Heroku free tier.*
+
 
 
 <!-- ABOUT THE PROJECT -->
