@@ -1,6 +1,6 @@
-![Logo](images/logo80.png)
+#Apollo
 
-##Apollo
+![Logo](images/logo80.png)
 
 *Running App*
 
