@@ -1,8 +1,8 @@
 ![Logo](images/logo80.png)
 
-#Apollo
+**Apollo**
 
-**Running App**
+*Running App*
 
  [Explore the docs »](https://github.com/almarina91/apollo-frontend)
 
