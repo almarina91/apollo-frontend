@@ -59,7 +59,7 @@ This is an example of how to list things you need to use the software and how to
 ## Usage
 The app is easy to use. A user has to select one of the provided running plans, then a day that was not finished yet (finished days are highlighted). This brings the user to the timer page that instructs the user how to run. At the end of the intervals for that day, if allowed, user can see the stats for the run.
 
-![Logo](images/apollo%20gif.gif)
+![Logo](images/apollo.gif)
 
 <!-- ROADMAP -->
 ## Roadmap
