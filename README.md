@@ -47,12 +47,16 @@ This is an example of how to list things you need to use the software and how to
 1. Clone the repo
    ```sh
    git clone https://github.com/almarina91/apollo-frontend.git
+   git clone https://github.com/almarina91/apollo-backend.git
    ```
-2. Install NPM packages
+2. Install NPM packages for frontend and backend separately using:
    ```sh
    npm install
    ```
-
+3. Starting the app from apollo-backend folder
+  ```sh
+   npm start-dev
+   ```
 
 
 <!-- USAGE EXAMPLES -->
