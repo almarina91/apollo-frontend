@@ -22,10 +22,10 @@ This app offers all the basic functionalities of a running app. If allowed, it a
 
 ### Built With
 
-* [MongoDB]()
-* [Express]()
-* [React]()
-* [Node.js]()
+* MongoDB
+* Express
+* React
+* Node.js
 
 
 
