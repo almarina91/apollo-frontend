@@ -53,11 +53,14 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-3. Starting the app from apollo-backend folder
+3. Starting the development mode from apollo-backend folder
   ```sh
    npm start-dev
    ```
-
+4. Starting the production mode from apollo-backend folder
+  ```sh
+   npm start
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
